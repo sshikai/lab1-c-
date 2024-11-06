@@ -1,0 +1,155 @@
+//zadanie 1
+#include <iostream>
+using namespace std;
+
+double Equivalent(double R1, double R2, double R3) {
+    return 1 / (1/R1 + 1/R2 + 1/R3);
+}
+
+int main() {
+    double R1, R2, R3;
+    cout << "Введите R1: ";
+    cin >> R1;
+    cout << "Введите R2: ";
+    cin >> R2;
+    cout << "Введите R3: ";
+    cin >> R3;
+
+    double R0 = Equivalent(R1, R2, R3);
+    cout << "Эквивалентное сопротивление R0: " << R0 << " Ом" << endl;
+
+    return 0;
+}
+
+//zadanie2
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double calculate(double L) {
+    double R = L / (2 * M_PI);
+    return M_PI * R * R;
+}
+
+int main() {
+    double L;
+    cout << "Введите длину окружности: ";
+    cin >> L;
+
+    double area = calculate(L);
+    cout << "Площадь круга: " << area << " квадратных метров" << endl;
+
+    return 0;
+}
+
+//zadanie3
+#include <iostream>
+using namespace std;
+
+double calculateDistance(double v, double t, double a) {
+    return v * t + (a * t * t) / 2;
+}
+
+int main() {
+    double v, t, a;
+    cout << "Введите скорость (м/с): ";
+    cin >> v;
+    cout << "Введите время (с): ";
+    cin >> t;
+    cout << "Введите ускорение (м/с²): ";
+    cin >> a;
+
+    double distance = calculateDistance(v, t, a);
+    cout << "Пройденное расстояние: " << distance << " метров" << endl;
+
+    return 0;
+}
+
+//zadanie4
+#include <iostream>
+using namespace std;
+
+void convertSeconds(int totalSeconds) {
+    int hours = totalSeconds / 3600;
+    int minutes = (totalSeconds % 3600) / 60;
+    int seconds = totalSeconds % 60;
+
+    cout << hours << " часов, " << minutes << " минут, " << seconds << " секунд." << endl;
+}
+
+int main() {
+    int totalSeconds;
+    cout << "Введите время в секундах: ";
+    cin >> totalSeconds;
+
+    convertSeconds(totalSeconds);
+
+    return 0;
+}
+
+//zadanie5
+#include <iostream>
+using namespace std;
+
+void convertToMoneyFormat(double amount) {
+    int dollars = static_cast<int>(amount);
+    int cents = static_cast<int>((amount - dollars) * 100);
+    
+    cout << dollars << " долларов и " << cents << " центов." << endl;
+}
+
+int main() {
+    double amount;
+    cout << "Введите дробное число: ";
+    cin >> amount;
+
+    convertToMoneyFormat(amount);
+
+    return 0;
+}
+
+//zadanie6
+#include <iostream>
+using namespace std;
+
+void convertDays(int days) {
+    int weeks = days / 7;
+    int remainingDays = days % 7;
+
+    cout << weeks << " недель и " << remainingDays << " дней." << endl;
+}
+
+int main() {
+    int daysInput;
+    cout << "Введите количество дней: ";
+    cin >> daysInput;
+
+    convertDays(daysInput);
+
+    return 0;
+}
+
+//zadanie8
+#include <iostream>
+using namespace std;
+
+double calculateMonthlyInterest(double principal, double annualRate) {
+    return (principal * annualRate / 100) / 12; // месячный процент
+}
+
+int main() {
+    double principal, annualRate;
+
+    cout << "Введите сумму денежного вклада в евро: ";
+    cin >> principal;
+    
+    cout << "Введите процент годовых: ";
+    cin >> annualRate;
+
+    double monthlyInterest = calculateMonthlyInterest(principal, annualRate);
+    
+    cout << "Сумма денег, выплачиваемых банком вкладчику каждый месяц: "
+         << monthlyInterest << " евро" << endl;
+
+    return 0;
+}
